@@ -6,115 +6,202 @@
     <title>Dream Path Tracking App</title>
     <meta name="apple-mobile-web-app-title" content="Dream Path">
     <meta name="application-name" content="Dream Path Tracking App">
-    
-    <!-- PWA: Manifest Link -->
     <link rel="manifest" href="manifest.json">
-    
-    <!-- PWA: Theme Color (for browser UI) -->
     <meta name="theme-color" content="#4f46e5">
-
-    <!-- PWA: Apple Touch Icon (uses the manifest icon) -->
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCIgeTE9IjAiIHgyPSI1MCIgeTI9IjEwMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2RhYjRmNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQ2NmVkNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIHJ5PSIyMCIgZmlsbD0idXJsKCNhKSIvPjxwYXRoIGQ9Ik00NS41IDcwYy0xLjMtLjQtMi4xLS42LTMuMi0uOHMtMi41LS43LTMuOC0xLjljLTEuMi0xLjItMS45LTIuOC0yLjUtNC43LS42LTEuOS0uNy00LjMtLjktN3YtMTdjLjItMi41LjUtNC41IDEuNS02cyIgc3R5bGU9ImZpbGw6I2ZmZjsgZmlsbC1vcGFjaXR5OjAuNSIvPjxwYXRoIGQ9Ik01MiA0OC41Yy44LS41IDEuNy0xLjIgMi42LTJsMy0uM2MxLjEtLjEgMi0uMyAyLjctLjQgMi4yLS4zIDMtMS4zIDMtMy44IDAtMi41LS44LTMuNC0yLjctMy41LTEuNS0uMS0yLjYgMC00IC4xcy0yLjkuMy00LjUgMS4xYy0xLjcgLjctMy4xIDIuMy00LjEgNS4xLTEgMi44LTEuMyA2LS43IDEwLjEgLjQgMi41IDEgNC4zIDIuNSA1LjZjMS41IDEuMyAzLjYgMi4yIDYuNCAyLjggMi43LjUgNS41IDMuNCA2LjUgNC42czIuNSAyLjggMy42IDUuNGMxLjIgMi43IDEuNyA1LjIgMS41IDcuOCAwIDIuNi0xLjMgNC40LTMuNSA1LjctMi4xIDEuMy00LjggMi4xLTggMi4zLTNjLjItNS01LjUtOS4zLTkgOC0xMy42LS42LS42LTEuMi0xLjItMS44LTEuOCIgc3R5bGU9ImZpbGw6I2ZmZjsgZmlsbC1vcGFjaXR5OjAuOSIvPjxwYXRoIGQ9Ik01MCA1MGwtMy0zcy0xLjktMi4yLTQtMmMtMi4xIDAtMy4yLjctNC4yIDIuMi0xLjEgMS42LTEuOSAzLjQtMi41IDUuNi0uNiAyLjMtLjcgNC44LS4xIDcuNXMxLjMgNC44IDMuNSA2LjNjMi4xIDEuNSAzLjcgMi41IDUuNiAyLjgiIHN0eWxlPSJmaWxsOiNmZmY7IGZpbGwtb3BhY2l0eToxIi8+PC9zdmc+" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCIgeTE9IjAiIHgyPSI1MCIgeTI9IjEwMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2RhYjRmNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQ2NmVkNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIHJ5PSIyMCIgZmlsbD0idXJsKCNhKSIvPjxwYXRoIGQ9Ik00NS41IDcwYy0xLjMtLjQtMi4xLS42LTMuMi0uOHMtMi41LS43LTMuOC0xLjljLTEuMi0xLjItMS45LTIuOC0yLjUtNC43LS42LTEuOS0uNy00LjMtLjktN3YtMTdjLjItMi41LjUtNC41IDEuNS02cyIgc3R5bGU9ImZpbGw6I2ZmZjsgZmlsbC1vcGFjaXR5OjAuNSIvPjxwYXRoIGQ9Ik01MiA0OC41Yy44LS41IDEuNy0xLjIgMi42LTJsMy0uM2MxLjEtLjEgMi0uMyAyLjctLjQgMi4yLS4zIDMtMS4zIDMtMy44IDAtMi41LS44LTMuNC0yLjctMy41LTEuNS0uMS0yLjYgMC00IC4xcy0yLjkuMy00LjUgMS4xYy0xLjcgLjctMy4xIDIuMy00LjEgNS4xLTEgMi44LTEuMyA6LS43IDEwLjEgLjQgMi41IDEgNC4zIDIuNSA1LjZjMS41IDEuMyAzLjYgMi4yIDYuNCAyLjggMi43LjUgNS41IDMuNCA2LjUgNC42czIuNSAyLjggMy42IDUuNGMxLjIgMi43IDEuNyA1LjIgMS41IDcuOCAwIDIuNi0xLjMgNC40LTMuNSA1LjctMi4xIDEuMy00LjggMi4xLTggMi4zLTNjLjItNS01LjUtOS4zLTkgOC0xMy42LS42LS42LTEuMi0xLjItMS44LTEuOCIgc3R5bGU9ImZpbGw6I2ZmZjsgZmlsbC1vcGFjaXR5OjAuOSIvPjxwYXRoIGQ9Ik01MCA1MGwtMy0zcy0xLjktMi4yLTQtMmMtMi4xIDAtMy4yLjctNC4yIDIuMi0xLjEgMS42LTEuOSAzLjQtMi41IDUuNi0uNiAyLjMtLjcgNC44LS4xIDcuNXMxLjMgNC44IDMuNSA2LjNjMi4xIDEuNSAzLjcgMi41IDUuNiAyLjgiIHN0eWxlPSJmaWxsOiNmZmY7IGZpbGwtb3BhYToxIi8+PC9zdmc+" />
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7fafc;
-        }
-        .app-container {
-            max-width: 900px;
-        }
-        /* Custom styling for the range slider for better mobile feel */
+        body { font-family: 'Inter', sans-serif; background-color: #f7fafc; }
+        .app-container { max-width: 900px; }
         input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            border: 3px solid #4f46e5; /* Indigo 600 */
-            height: 18px;
-            width: 18px;
-            border-radius: 50%;
-            background: #ffffff;
-            cursor: pointer;
-            margin-top: -6px; /* Adjust vertical alignment */
+            -webkit-appearance: none; border: 3px solid #4f46e5; height: 18px; width: 18px; border-radius: 50%;
+            background: #ffffff; cursor: pointer; margin-top: -6px;
         }
         input[type=range]::-moz-range-thumb {
-            border: 3px solid #4f46e5;
-            height: 18px;
-            width: 18px;
-            border-radius: 50%;
-            background: #ffffff;
-            cursor: pointer;
+            border: 3px solid #4f46e5; height: 18px; width: 18px; border-radius: 50%;
+            background: #ffffff; cursor: pointer;
         }
+        /* Loader styles */
+        .loader {
+            border: 5px solid #f3f3f3; /* Light grey */
+            border-top: 5px solid #4f46e5; /* Indigo */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="p-2 sm:p-4 md:p-8">
 
-    <div id="app" class="app-container mx-auto">
-        <!-- App content will be rendered here by JavaScript -->
-        <div classL="text-center p-10">
-            <h1 class="text-xl font-bold text-gray-700">Loading Dream Path...</h1>
+    <!-- 1. Loading Screen (Visible first) -->
+    <div id="loading-screen" class="fixed inset-0 flex flex-col items-center justify-center bg-white z-50">
+        <div class="loader"></div>
+        <p class="text-gray-600 mt-4">Connecting to secure server...</p>
+    </div>
+
+    <!-- 2. Login Screen (Hidden by default) -->
+    <div id="login-screen" class="max-w-md mx-auto mt-16 sm:mt-24 p-6 bg-white rounded-xl shadow-lg border-t-4 border-indigo-600" style="display:none;">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-2">Dream Path (Private)</h1>
+        <p class="text-sm text-gray-600 mb-5 text-center">Please log in to access your plan.</p>
+        
+        <label for="email-input" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email-input" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="you@example.com">
+        
+        <label for="password-input" class="block text-sm font-medium text-gray-700 mt-3">Password</label>
+        <input type="password" id="password-input" class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="••••••••">
+        
+        <p id="error-message" class="text-red-500 text-sm mt-2 text-center" style="display:none;">Invalid email or password.</p>
+        
+        <button id="login-button" class="w-full bg-indigo-600 text-white py-2 rounded-lg mt-4 font-semibold hover:bg-indigo-700 transition-colors">Log In</button>
+    </div>
+
+    <!-- 3. App Container (Hidden by default) -->
+    <div id="app-container" class="app-container mx-auto" style="display:none;">
+        <div id="app">
+            <!-- App content will be rendered here -->
+            <div class="text-center p-10">
+                <div class="loader mx-auto"></div>
+                <p class="text-gray-600 mt-4">Loading your private plan...</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        const STORAGE_KEY = 'DualStrategyTrackerData';
-        
-        // Define the 5 EB-3 Installments based on the user's plan ($13,500 total)
-        const EB3_INSTALLMENTS = [
-            { id: 1, amount: 2000, description_en: "Installment 1: Upon signing Job Offer Letter", paid: false },
-            { id: 2, amount: 2500, description_en: "Installment 2: When filing PERM", paid: false },
-            { id: 3, amount: 3200, description_en: "Installment 3: Upon PERM approval", paid: false },
-            { id: 4, amount: 2500, description_en: "Installment 4: Before filing I-140", paid: false },
-            { id: 5, amount: 3300, description_en: "Installment 5: Before filing final CP application", paid: false },
-        ];
-        const TOTAL_EB3_FEE = 13500;
-        
-        // Milestones based on the final, refined plan (All strings are now English)
-        const INITIAL_MILESTONES = [
-            { id: 1, title_en: '🇩🇪 Start German Language Study (A0)', date: 'December 2025', completed: false, path: 'DE' },
-            { id: 2, title_en: 'NVQ Level 4 Caregiver Course Start', date: 'January 2026', completed: false, path: 'DE/US' },
-            { id: 3, title_en: 'German B2 Target Level Completion', date: 'August 2026', completed: false, path: 'DE' },
-            { id: 4, title_en: 'NVQ Level 4 Certification Complete (Inc. OJT)', date: 'October 2026', completed: false, path: 'DE/US' },
-            { id: 5, title_en: 'Ausbildung Application (Pflegefachmann)', date: 'Sept/Oct 2026', completed: false, path: 'DE' },
-            { id: 6, title_en: 'KFC/Crew Member Job Experience (6 Months)', date: 'June 2027', completed: false, path: 'US' },
-            { id: 7, title_en: 'EB-3 Visa Application (Priority Date Filing)', date: 'Late 2027', completed: false, path: 'US' },
-            { id: 8, title_en: 'Start Ausbildung in Germany (Relocation)', date: 'September 2027', completed: false, path: 'DE' },
-            { id: 9, title_en: 'Ausbildung Completion (Move to German PR)', date: 'Late 2030', completed: false, path: 'DE' },
-            { id: 10, title_en: 'Green Card Approval and US Arrival', date: '2032/2033', completed: false, path: 'US' },
-        ];
 
-        // Initial state structure
-        const INITIAL_STATE = {
-            germanLevel: 0, // 0 to 4 (A1 to B2)
-            eb3Payments: EB3_INSTALLMENTS.map(p => ({ ...p, description_en: p.description_en })), 
-            milestones: INITIAL_MILESTONES.map(m => ({ ...m, title_en: m.title_en })),
+    <!-- Firebase SDKs -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+        // --- Your Firebase Config (ඔබ ලබා දුන්) ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyCPeM0UYoRDJlt1HqTP_brh3XQ1CPo9-gQ",
+            authDomain: "dream-path-app.firebaseapp.com",
+            projectId: "dream-path-app",
+            storageBucket: "dream-path-app.firebasestorage.app",
+            messagingSenderId: "465853655821",
+            appId: "1:465853655821:web:82cc8ba3d4fa838d04de44",
+            measurementId: "G-D4RTL0BQZK"
         };
 
-        // Load state from local storage or use initial state
-        // This is the FIXED migration-safe function
+        // --- Initialize Firebase ---
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // --- DOM Elements ---
+        const loadingScreen = document.getElementById('loading-screen');
+        const loginScreen = document.getElementById('login-screen');
+        const appContainer = document.getElementById('app-container');
+        const loginButton = document.getElementById('login-button');
+        const emailInput = document.getElementById('email-input');
+        const passwordInput = document.getElementById('password-input');
+        const errorMessage = document.getElementById('error-message');
+
+        // --- App State Variables ---
+        const STORAGE_KEY = 'DualStrategyTrackerData';
+        let EB3_INSTALLMENTS = []; // Database එකෙන් load වෙනවා
+        let TOTAL_EB3_FEE = 0; // Database එකෙන් load වෙනවා
+        let INITIAL_MILESTONES = []; // Database එකෙන් load වෙනවා
+        let INITIAL_STATE = {};
+        let appState = {};
+
+        // --- Main Login Status Checker ---
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is logged in
+                loginScreen.style.display = 'none';
+                appContainer.style.display = 'block';
+                loadingScreen.style.display = 'none';
+                
+                // Load the plan from the database
+                loadPlanFromDatabase();
+            } else {
+                // User is logged out
+                loginScreen.style.display = 'block';
+                appContainer.style.display = 'none';
+                loadingScreen.style.display = 'none';
+            }
+        });
+
+        // --- Login Button Click ---
+        loginButton.addEventListener('click', () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+            errorMessage.style.display = 'none';
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    console.log("Login successful", userCredential.user);
+                })
+                .catch((error) => {
+                    console.error("Login failed", error.message);
+                    errorMessage.style.display = 'block';
+                });
+        });
+
+        // --- NEW: Load Plan from Database ---
+        async function loadPlanFromDatabase() {
+            try {
+                // 'tracker_data' -> 'my_plan' (ඔබ database එකේ සෑදූ collection සහ document)
+                const docRef = doc(db, "tracker_data", "my_plan");
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const planData = docSnap.data();
+                    
+                    // Database එකෙන් plan එක ගෙන, global variables සකසමු
+                    EB3_INSTALLMENTS = planData.eb3_installments || [];
+                    INITIAL_MILESTONES = planData.milestones || [];
+                    
+                    TOTAL_EB3_FEE = EB3_INSTALLMENTS.reduce((sum, p) => sum + p.amount, 0);
+
+                    // දැන් INITIAL_STATE එක හදමු
+                    INITIAL_STATE = {
+                        germanLevel: 0,
+                        eb3Payments: EB3_INSTALLMENTS.map(p => ({ ...p, paid: false })), 
+                        milestones: INITIAL_MILESTONES.map(m => ({ ...m, completed: false })),
+                    };
+                    
+                    // දැන් LocalStorage එකෙන් progress එක load කරමු
+                    appState = loadState();
+                    
+                    // අවසානයේ App එක render කරමු
+                    renderApp();
+
+                } else {
+                    console.error("Error: 'my_plan' document not found in database!");
+                    document.getElementById('app').innerHTML = `<p class="text-red-500 text-center p-10">Error: Plan data not found in database. Please check Firestore setup.</p>`;
+                }
+            } catch (error) {
+                console.error("Error loading plan from Firestore: ", error);
+                document.getElementById('app').innerHTML = `<p class="text-red-500 text-center p-10">Error: Could not load your private plan. ${error.message}</p>`;
+            }
+        }
+
+
+        // --- Load state from local storage or use initial state ---
         function loadState() {
             const storedData = localStorage.getItem(STORAGE_KEY);
             if (storedData) {
                 try {
                     const parsedData = JSON.parse(storedData);
                     
-                    const migratedEb3 = (parsedData.eb3Payments || []).map(p_old => {
-                        const p_new = EB3_INSTALLMENTS.find(i => i.id === p_old.id);
-                        if (!p_new) return null; // Skip if this ID no longer exists
-                        return {
-                            ...p_new, 
-                            paid: p_old.paid || false // ONLY take the old 'paid' status
-                        };
-                    }).filter(Boolean); // Filter out nulls
+                    const migratedEb3 = (INITIAL_STATE.eb3Payments || []).map(p_new => {
+                        const p_old = (parsedData.eb3Payments || []).find(p => p.id === p_new.id);
+                        return { ...p_new, paid: p_old ? p_old.paid : false };
+                    });
 
-                    const migratedMilestones = (parsedData.milestones || []).map(m_old => {
-                        const m_new = INITIAL_MILESTONES.find(i => i.id === m_old.id);
-                        if (!m_new) return null; // Skip if this ID no longer exists
-                        return {
-                            ...m_new, 
-                            completed: m_old.completed || false // ONLY take the old 'completed' status
-                        };
-                    }).filter(Boolean); // Filter out nulls
+                    const migratedMilestones = (INITIAL_STATE.milestones || []).map(m_new => {
+                        const m_old = (parsedData.milestones || []).find(m => m.id === m_new.id);
+                        return { ...m_new, completed: m_old ? m_old.completed : false };
+                    });
 
                     return {
                         germanLevel: parsedData.germanLevel || 0,
@@ -122,52 +209,45 @@
                         milestones: migratedMilestones.length > 0 ? migratedMilestones : INITIAL_STATE.milestones,
                     };
                 } catch (e) {
-                    console.error("Error parsing stored data, resetting to initial state.", e);
+                    console.error("Error parsing stored data, resetting.", e);
                     return INITIAL_STATE;
                 }
             }
             return INITIAL_STATE;
         }
 
-        // Save state to local storage
+        // --- Save state to local storage ---
         function saveState(state) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
         }
 
-        let appState = loadState();
-
-        // RENDER FUNCTIONS
-
-        // Helper function for progress bar HTML
+        // --- RENDER FUNCTIONS (No changes needed) ---
         function renderProgressBar(progress, color = 'bg-indigo-600') {
             const width = Math.min(progress, 100);
-            return `
-                <div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700">
-                    <div class="h-2.5 rounded-full transition-all duration-500 ${color}" style="width: ${width}%"></div>
-                </div>
-            `;
+            return `<div class="w-full bg-gray-300 rounded-full h-2.5 dark:bg-gray-700"><div class="h-2.5 rounded-full transition-all duration-500 ${color}" style="width: ${width}%"></div></div>`;
         }
 
-        // Helper function for German level text
         function renderGermanLevelText(level) {
             const levels = ['A0 (Beginner)', 'A1 (Basic)', 'A2 (Elementary)', 'B1 (Intermediate)', 'B2 (Professional Target)'];
             const current = levels[Math.min(level, 4)];
             const target = levels[4];
             let text = `Current Level: <span class="font-bold">${current}</span>. Target Level: ${target}`;
-            if (level === 4) {
-                text += ` <span class="text-green-700 ml-2">🎉 B2 Goal Achieved!</span>`;
-            }
+            if (level === 4) { text += ` <span class="text-green-700 ml-2">🎉 B2 Goal Achieved!</span>`; }
             return text;
         }
 
-        // Main render function
         function renderApp() {
             const root = document.getElementById('app');
             const { germanLevel, eb3Payments, milestones } = appState;
 
-            // EB-3 Financial Logic
+            // plan එක load වෙනකල් loader එක පෙන්වන්න
+            if (!milestones || milestones.length === 0) {
+                root.innerHTML = `<div class="text-center p-10"><div class="loader mx-auto"></div><p class="text-gray-600 mt-4">Loading your private plan...</p></div>`;
+                return;
+            }
+
             const paidAmount = eb3Payments.filter(p => p.paid).reduce((sum, p) => sum + p.amount, 0);
-            const paidPercentage = (paidAmount / TOTAL_EB3_FEE) * 100;
+            const paidPercentage = (TOTAL_EB3_FEE > 0) ? (paidAmount / TOTAL_EB3_FEE) * 100 : 0;
             const remainingAmount = TOTAL_EB3_FEE - paidAmount;
 
             root.innerHTML = `
@@ -178,126 +258,54 @@
                         <h2 class="text-sm font-semibold text-blue-800">🎯 Ultimate Goal: Financial Freedom (RN Status)</h2>
                     </div>
                 </header>
-
                 <section class="mb-6 p-4 bg-white rounded-xl shadow-lg">
                     <h2 class="text-lg font-bold text-gray-800 mb-3 border-b pb-1 text-indigo-700">🇩🇪 Language Goal (German B2)</h2>
-                    
                     <div class="mb-4">
                         <label for="german-level-slider" class="block text-sm font-medium text-gray-700 mb-2">Update German Language Level:</label>
-                        <input
-                            type="range"
-                            id="german-level-slider"
-                            min="0"
-                            max="4"
-                            step="1"
-                            value="${germanLevel}"
-                            class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                            oninput="updateGermanLevel(this.value)"
-                        />
-                        <div class="flex justify-between text-xs text-gray-500 mt-1 px-1 font-semibold">
-                            <span>A0</span>
-                            <span>A1</span>
-                            <span>A2</span>
-                            <span>B1</span>
-                            <span>B2</span>
-                        </div>
+                        <input type="range" id="german-level-slider" min="0" max="4" step="1" value="${germanLevel}" class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer" oninput="updateGermanLevel(this.value)" />
+                        <div class="flex justify-between text-xs text-gray-500 mt-1 px-1 font-semibold"><span>A0</span><span>A1</span><span>A2</span><span>B1</span><span>B2</span></div>
                     </div>
-                    
-                    <div class="p-3 bg-yellow-100 rounded-lg text-sm font-medium text-yellow-900 border border-yellow-300">
-                        ${renderGermanLevelText(germanLevel)}
-                    </div>
+                    <div class="p-3 bg-yellow-100 rounded-lg text-sm font-medium text-yellow-900 border border-yellow-300">${renderGermanLevelText(germanLevel)}</div>
                 </section>
-
                 <section class="mb-6 p-4 bg-white rounded-xl shadow-lg">
                     <h2 class="text-lg font-bold text-gray-800 mb-3 border-b pb-1 text-indigo-700">🇺🇸 EB-3 Financial Tracker (USD ${TOTAL_EB3_FEE.toLocaleString()})</h2>
-                    
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-semibold text-gray-600">Amount Paid (USD): <span class="text-green-600 font-bold">$${paidAmount.toLocaleString()}</span></span>
-                        <span class="text-base font-bold text-indigo-600">${paidPercentage.toFixed(1)}%</span>
-                    </div>
+                    <div class="flex justify-between items-center mb-2"><span class="text-sm font-semibold text-gray-600">Amount Paid (USD): <span class="text-green-600 font-bold">$${paidAmount.toLocaleString()}</span></span><span class="text-base font-bold text-indigo-600">${paidPercentage.toFixed(1)}%</span></div>
                     <div class="text-xs text-gray-500 mb-4">Remaining Payment: <span class="text-red-500 font-bold">$${remainingAmount.toLocaleString()}</span> (Targeted to be paid with German stipend)</div>
-                    
                     ${renderProgressBar(paidPercentage, 'bg-indigo-600')}
-                    
-                    <div class="mt-4 space-y-2">
-                        ${eb3Payments.map(p => `
-                            <div class="flex items-center p-2 bg-gray-50 rounded-lg border border-gray-200">
-                                <label class="flex items-center space-x-3 cursor-pointer w-full">
-                                    <input
-                                        type="checkbox"
-                                        onchange="togglePayment(${p.id})"
-                                        ${p.paid ? 'checked' : ''}
-                                        class="form-checkbox h-4 w-4 text-indigo-600 rounded"
-                                    />
-                                    <div class="text-sm ${p.paid ? 'line-through text-green-700' : 'text-gray-900'} flex-grow">
-                                        ${p.description_en}
-                                    </div>
-                                    <span class="text-xs font-bold text-gray-600 ml-auto">$${p.amount.toLocaleString()}</span>
-                                </label>
-                            </div>
-                        `).join('')}
-                    </div>
+                    <div class="mt-4 space-y-2">${eb3Payments.map(p => `<div class="flex items-center p-2 bg-gray-50 rounded-lg border border-gray-200"><label class="flex items-center space-x-3 cursor-pointer w-full"><input type="checkbox" onchange="togglePayment(${p.id})" ${p.paid ? 'checked' : ''} class="form-checkbox h-4 w-4 text-indigo-600 rounded" /><div class="text-sm ${p.paid ? 'line-through text-green-700' : 'text-gray-900'} flex-grow">${p.description_en}</div><span class="text-xs font-bold text-gray-600 ml-auto">$${p.amount.toLocaleString()}</span></label></div>`).join('')}</div>
                 </section>
-
                 <section class="p-4 bg-white rounded-xl shadow-lg">
                     <h2 class="text-lg font-bold text-gray-800 mb-3 border-b pb-1 text-indigo-700">🚀 Major Milestones (2026 - 2033)</h2>
-                    <div class="space-y-3">
-                        ${milestones.map(m => `
-                            <div class="p-3 border rounded-xl shadow-sm transition-all duration-300 ${m.completed ? 'bg-green-100 border-green-500' : 'bg-gray-50 border-gray-300 hover:bg-yellow-50'}">
-                                <label class="flex items-start cursor-pointer space-x-3">
-                                    <input
-                                        type="checkbox"
-                                        onchange="toggleMilestone(${m.id})"
-                                        ${m.completed ? 'checked' : ''}
-                                        class="form-checkbox h-5 w-5 text-green-600 rounded-full mt-1"
-                                    />
-                                    <div>
-                                        <h4 class="text-sm font-semibold ${m.completed ? 'text-green-800 line-through' : 'text-gray-900'}">${m.title_en}</h4>
-                                        <p class="text-xs ${m.completed ? 'text-green-600' : 'text-gray-500'}">${m.completed ? 'Completed' : `Target: ${m.date}`}</p>
-                                    </div>
-                                </label>
-                            </div>
-                        `).join('')}
-                    </div>
+                    <div class="space-y-3">${milestones.map(m => `<div class="p-3 border rounded-xl shadow-sm transition-all duration-300 ${m.completed ? 'bg-green-100 border-green-500' : 'bg-gray-50 border-gray-300 hover:bg-yellow-50'}"><label class="flex items-start cursor-pointer space-x-3"><input type="checkbox" onchange="toggleMilestone(${m.id})" ${m.completed ? 'checked' : ''} class="form-checkbox h-5 w-5 text-green-600 rounded-full mt-1" /><div><h4 class="text-sm font-semibold ${m.completed ? 'text-green-800 line-through' : 'text-gray-900'}">${m.title_en}</h4><p class="text-xs ${m.completed ? 'text-green-600' : 'text-gray-500'}">${m.completed ? 'Completed' : `Target: ${m.date}`}</p></div></label></div>`).join('')}</div>
                 </section>
             `;
             saveState(appState);
         }
 
-        // EVENT HANDLERS (Must be global for inline HTML events to work)
-
-        function updateGermanLevel(level) {
+        // --- EVENT HANDLERS (Must be global) ---
+        window.updateGermanLevel = (level) => {
             appState.germanLevel = parseInt(level);
             renderApp();
         }
-
-        function togglePayment(id) {
+        window.togglePayment = (id) => {
             appState.eb3Payments = appState.eb3Payments.map(p =>
                 p.id === id ? { ...p, paid: !p.paid } : p
             );
             renderApp();
         }
-
-        function toggleMilestone(id) {
+        window.toggleMilestone = (id) => {
             appState.milestones = appState.milestones.map(m =>
                 m.id === id ? { ...m, completed: !m.completed } : m
             );
             renderApp();
         }
 
-        // Initial call to render the app
-        document.addEventListener('DOMContentLoaded', renderApp);
-
-        // --- PWA: Register Service Worker ---
+        // --- PWA Service Worker ---
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
+                    .then(registration => { console.log('ServiceWorker registration successful'); })
+                    .catch(err => { console.log('ServiceWorker registration failed: ', err); });
             });
         }
     </script>
