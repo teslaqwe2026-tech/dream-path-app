@@ -1,0 +1,16 @@
+{
+  "name": "Dream Path Tracking App",
+  "short_name": "Dream Path",
+  "description": "Your Master Plan for Germany and the US",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7fafc",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSI1MCIgeTE9IjAiIHgyPSI1MCIgeTI9IjEwMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2RhYjRmNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQ2NmVkNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIHJ5PSIyMCIgZmlsbD0idXJsKCNhKSIvPjxwYXRoIGQ9Ik00NS41IDcwYy0xLjMtLjQtMi4xLS42LTMuMi0uOHMtMi41LS43LTMuOC0xLjljLTEuMi0xLjItMS45LTIuOC0yLjUtNC43LS42LTEuOS0uNy00LjMtLjktN3YtMTdjLjItMi41LjUtNC41IDEuNS02cyIgc3R5bGU9ImZpbGw6I2ZmZjsgZmlsbC1vcGFjaXR5OjAuNSIvPjxwYXRoIGQ9Ik01MiA0OC41Yy44LS41IDEuNy0xLjIgMi42LTJsMy0uM2MxLjEtLjEgMi0uMyAyLjctLjQgMi4yLS4zIDMtMS4zIDMtMy44IDAtMi41LS44LTMuNC0yLjctMy41LTEuNS0uMS0yLjYgMC00IC4xcy0yLjkuMy00LjUgMS4xYy0xLjcgLjctMy4xIDIuMy00LjEgNS4xLTEgMi44LTEuMyA2LS43IDEwLjEgLjQgMi41IDEgNC4zIDIuNSA1LjZjMS41IDEuMyAzLjYgMi4yIDYuNCAyLjggMi43LjUgNS41IDMuNCA2LjUgNC42czIuNSAyLjggMy42IDUuNGMxLjIgMi43IDEuNyA1LjIgMS41IDcuOCAwIDIuNi0xLjMgNC40LTMuNSA1LjctMi4xIDEuMy00LjggMi4xLTggMi4zLTNjLjItNS01LjUtOS4zLTkgOC0xMy42LS42LS42LTEuMi0xLjItMS44LTEuOCIgc3R5bGU9ImZpbGw6I2ZmZjsgZmlsbC1vcGFjaXR5OjAuOSIvPjxwYXRoIGQ9Ik01MCA1MGwtMy0zcy0xLjktMi4yLTQtMmMtMi4xIDAtMy4yLjctNC4yIDIuMi0xLjEgMS42LTEuOSAzLjQtMi41IDUuNi0uNiAyLjMtLjcgNC44LS4xIDcuNXMxLjMgNC44IDMuNSA2LjNjMi4xIDEuNSAzLjcgMi41IDUuNiAyLjgiIHN0eWxlPSJmaWxsOiNmZmY7IGZpbGwtb3BhY2l0eToxIi8+PC9zdmc+",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
